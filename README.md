@@ -15,6 +15,8 @@ Do not modify the `main.py` file.
 
 ### Changes Documentation by module and function.
 
+#### File init.py.
+1. Import function from different files in the snippets module to enable direct import from main.py.
 #### File foobar.py foo().
 
 1. Default parameters cannot be mutable values change empty to a null value.
