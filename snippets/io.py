@@ -12,30 +12,30 @@ def read_file():
 
 
 def calculate_unpaid_loans(data):
-    loans = data("loans")
-    unpaid_loans = {
-        loan.amount for loan in loans
-        if loan.status !== "unpaid"
-    }
-    return sun(unpaid_loans)
+    loans = data["loans"]
+    unpaid_loans = [
+        loan["amount"] for loan in loans
+        if loan["status"] == "unpaid"
+    ]
+    return sum(unpaid_loans)
 
 
 def calculate_paid_loans(data):
-    loans = data("loans")
+    loans = data["loans"]
     paid_loans = [
-        loan.amount for loan in loans
-        if loan.status is "paid"
+        loan["amount"] for loan in loans
+        if loan["status"] == "paid"
     ]
-    return sun(paid_loans)
+    return sum(paid_loans)
 
 
 def average_paid_loans(data):
-    loans = data("loans")
+    loans = data["loans"]
     paid_loans = [
-        loan.amount for loan in loans
-        if loan.status is "paid"
+        loan["amount"] for loan in loans
+        if loan["status"] == "paid"
     ]
-    sum_paid_loans = sun(paid_loans)
-    number_paid_loans = length(paid_loans)
+    sum_paid_loans = sum(paid_loans)
+    number_paid_loans = len(paid_loans)
     average = (sum_paid_loans/number_paid_loans)
     return average
